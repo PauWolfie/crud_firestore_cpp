@@ -102,7 +102,7 @@ Firestore el crearà per nosaltres. Segueix el següent patró:
 ```cpp
 // Create a new document.
 std::string url =
-"https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
+    "https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
 std::string data =
 R"({"fields": {"name": {"stringValue": "John Doe"}, "age": {"integerValue": "30"}}})";
 
@@ -113,8 +113,8 @@ curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 CURLcode res = curl_easy_perform(curl);
 
 if (res != CURLE_OK) {
-std::cerr << "Failed to create document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to create document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
@@ -125,7 +125,7 @@ En la lectura de de dades el mètode utilitzat és **GET**. Segueix el següent 
 ```cpp
 // Read a document.
 url =
-"https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
+    "https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
 
 curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
 curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
@@ -134,25 +134,24 @@ curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 res = curl_easy_perform(curl);
 
 if (res == CURLE_OK) {
-std::cout << "Document contents: " << response << std::endl;
+    std::cout << "Document contents: " << response << std::endl;
 } else {
-std::cerr << "Failed to read document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to read document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
 ### Actualitzar dades:
 
 Per actualitzar dades podem fer un **POST** a un document/col·lecció ja existent, però sobreescriurà l'arxiu posant a
-null
-els atributs no especificats.
+null els atributs no especificats.
 
 La forma correcta de realitzar l'actualització és amb el mètode **PATCH**:
 
 ```cpp
   // Update a document.
 url =
-"https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
+    "https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
 data = R"({"fields": {"age": {"integerValue": "35"}}})";
 
 curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "PATCH");
@@ -162,8 +161,8 @@ curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 res = curl_easy_perform(curl);
 
 if (res != CURLE_OK) {
-std::cerr << "Failed to update document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to update document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
@@ -174,13 +173,13 @@ Eliminem dades amb el mètode **DELETE**:
 ```cpp
   // Delete a document.
 url =
-"https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
+    "https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
 curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 res = curl_easy_perform(curl);
 if (res != CURLE_OK) {
-std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
