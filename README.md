@@ -22,7 +22,7 @@ cada col·lecció i document.
 
 Hi ha dos tipus de regles:
 
-1. **Regles de seguretat***: controlen qui té accés a la base de dades i quines operacions poden fer. Les regles de
+1. **Regles de seguretat**: controlen qui té accés a la base de dades i quines operacions poden fer. Les regles de
    seguretat es
    configuren a nivell de col·lecció.
 
@@ -78,6 +78,7 @@ service cloud.firestore {
   }
 }
 ```
+___
 
 ### Inicialització del projecte
 
@@ -112,8 +113,8 @@ curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 CURLcode res = curl_easy_perform(curl);
 
 if (res != CURLE_OK) {
-std::cerr << "Failed to create document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to create document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
@@ -133,10 +134,10 @@ curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 res = curl_easy_perform(curl);
 
 if (res == CURLE_OK) {
-std::cout << "Document contents: " << response << std::endl;
+   std::cout << "Document contents: " << response << std::endl;
 } else {
-std::cerr << "Failed to read document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to read document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
@@ -161,8 +162,8 @@ curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 res = curl_easy_perform(curl);
 
 if (res != CURLE_OK) {
-std::cerr << "Failed to update document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to update document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
 
@@ -178,7 +179,7 @@ curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 res = curl_easy_perform(curl);
 if (res != CURLE_OK) {
-std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
-<< std::endl;
+   std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
+   << std::endl;
 }
 ```
