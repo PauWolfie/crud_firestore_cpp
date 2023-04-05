@@ -1,4 +1,4 @@
-# CRUD Bàsic en c++ per Firestore
+# CRUD Bàsic en C++ per Firestore
 
 ### Estructura de dades en Firestore
 
