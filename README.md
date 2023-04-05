@@ -104,7 +104,7 @@ Firestore el crearà per nosaltres. Segueix el següent patró:
 std::string url =
     "https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
 std::string data =
-R"({"fields": {"name": {"stringValue": "John Doe"}, "age": {"integerValue": "30"}}})";
+    R"({"fields": {"name": {"stringValue": "John Doe"}, "age": {"integerValue": "30"}}})";
 
 curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
 curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
@@ -174,9 +174,11 @@ Eliminem dades amb el mètode **DELETE**:
   // Delete a document.
 url =
     "https://firestore.googleapis.com/v1/projects/mychef-alpha/databases/(default)/documents/users/new_user";
+
 curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 res = curl_easy_perform(curl);
+
 if (res != CURLE_OK) {
    std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
    << std::endl;
