@@ -13,7 +13,6 @@ Les col·leccions poden contenir un nombre arbitrari de documents.
 
 ![Exemple estructura](imgs/ex.png)
 
-
 ### Regles de Firestore
 
 Firestore té un sistema de regles que permeten controlar l'accés i la validació de les dades a la base de dades. Les
@@ -78,6 +77,7 @@ service cloud.firestore {
   }
 }
 ```
+
 ___
 
 ### Inicialització del projecte
@@ -113,8 +113,8 @@ curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 CURLcode res = curl_easy_perform(curl);
 
 if (res != CURLE_OK) {
-   std::cerr << "Failed to create document: " << curl_easy_strerror(res)
-   << std::endl;
+std::cerr << "Failed to create document: " << curl_easy_strerror(res)
+<< std::endl;
 }
 ```
 
@@ -134,10 +134,10 @@ curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 res = curl_easy_perform(curl);
 
 if (res == CURLE_OK) {
-   std::cout << "Document contents: " << response << std::endl;
+std::cout << "Document contents: " << response << std::endl;
 } else {
-   std::cerr << "Failed to read document: " << curl_easy_strerror(res)
-   << std::endl;
+std::cerr << "Failed to read document: " << curl_easy_strerror(res)
+<< std::endl;
 }
 ```
 
@@ -162,8 +162,8 @@ curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
 res = curl_easy_perform(curl);
 
 if (res != CURLE_OK) {
-   std::cerr << "Failed to update document: " << curl_easy_strerror(res)
-   << std::endl;
+std::cerr << "Failed to update document: " << curl_easy_strerror(res)
+<< std::endl;
 }
 ```
 
@@ -179,7 +179,13 @@ curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 res = curl_easy_perform(curl);
 if (res != CURLE_OK) {
-   std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
-   << std::endl;
+std::cerr << "Failed to delete document: " << curl_easy_strerror(res)
+<< std::endl;
 }
 ```
+
+### Postman:
+
+Per veure un parell de request fetes amb postman pots accedir-hi prement el botó:
+
+[![Open Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/24790584-416137ca-ed0a-4ae3-9f31-7cebcbc3704a?action=collection%2Ffork&collection-url=entityId%3D24790584-416137ca-ed0a-4ae3-9f31-7cebcbc3704a%26entityType%3Dcollection%26workspaceId%3D726df1bd-17b3-4a95-980f-b61f52eabaf2)
